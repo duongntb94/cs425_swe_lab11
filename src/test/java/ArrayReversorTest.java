@@ -24,14 +24,14 @@ class ArrayReversorTest {
 
     @Test
     void testReverseArray1() {
-        Integer[][] input = new Integer[][]{{1, 3}, {0}, {4, 5, 9}};
-        Integer[] expected = new Integer[]{9, 5, 4, 0, 3, 1};
+        Integer[][] array = new Integer[][]{{1, 3}, {0}, {4, 5, 9}};
+        Integer[] expectedResult = new Integer[]{9, 5, 4, 0, 3, 1};
 
-        when(arrayFlattenerService.flattenArray(input))
+        when(arrayFlattenerService.flattenArray(array))
                 .thenReturn(new Integer[]{1, 3, 0, 4, 5, 9});
 
-        Integer[] actual = arrayReversor.reverseArray(input);
-        Assertions.assertArrayEquals(expected, actual);
+        Integer[] actualResult = arrayReversor.reverseArray(array);
+        Assertions.assertArrayEquals(expectedResult, actualResult);
     }
 
     @Test
