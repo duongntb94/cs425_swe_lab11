@@ -10,11 +10,11 @@ import static org.mockito.Mockito.*;
  */
 class ArrayReversorTest {
     private ArrayReversor arrayReversor;
-    private ArrayFlattenerService arrayFlattenerService = mock(ArrayFlattenerService.class);
+    private IArrayFlattenerService service = mock(IArrayFlattenerService.class);
 
     @BeforeEach
     void setUp() {
-        arrayReversor = new ArrayReversor(arrayFlattenerService);
+        arrayReversor = new ArrayReversor(service);
     }
 
     @AfterEach
@@ -27,7 +27,7 @@ class ArrayReversorTest {
         Integer[][] array = new Integer[][]{{1, 3}, {0}, {4, 5, 9}};
         Integer[] expectedResult = new Integer[]{9, 5, 4, 0, 3, 1};
 
-        when(arrayFlattenerService.flattenArray(array))
+        when(service.flattenArray(array))
                 .thenReturn(new Integer[]{1, 3, 0, 4, 5, 9});
 
         Integer[] actualResult = arrayReversor.reverseArray(array);
@@ -36,7 +36,7 @@ class ArrayReversorTest {
 
     @Test
     void testReverseArray2() {
-        when(arrayFlattenerService.flattenArray(null)).thenReturn(null);
+        when(service.flattenArray(null)).thenReturn(null);
         Integer[] actual = arrayReversor.reverseArray(null);
         Assertions.assertArrayEquals(actual, null);
     }

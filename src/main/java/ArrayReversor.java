@@ -5,9 +5,9 @@ import java.util.ArrayList;
  * @project swe_lab11
  */
 public class ArrayReversor {
-    private ArrayFlattenerService service;
+    private IArrayFlattenerService service;
 
-    ArrayReversor(ArrayFlattenerService service) {
+    ArrayReversor(IArrayFlattenerService service) {
         this.service = service;
     }
 
